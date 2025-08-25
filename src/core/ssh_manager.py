@@ -12,6 +12,9 @@ import paramiko
 import select
 from PyQt5.QtCore import QObject, pyqtSignal
 
+# 启用paramiko调试日志
+paramiko.util.log_to_file('paramiko.log')
+
 class SSHManager(QObject):
     """SSH连接管理器类"""
     
@@ -43,6 +46,30 @@ class SSHManager(QObject):
             # 创建SSH客户端
             client = paramiko.SSHClient()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            
+            # 连接参数
+            connect_kwargs = {
+                "hostname": host,
+                "port": port,
+                "username": username,
+                "password": password,
+                "timeout": 30  # 添加超时设置
+            }
+            
+            if key_path:
+                connect_kwargs["key_filename"] = key_path
+                if passphrase:
+                    connect_kwargs["passphrase"] = passphrase
+            
+            # 尝试连接
+            client.connect(**connect_kwargs)
+            return client
+        except paramiko.ssh_exception.SSHException as e:
+            print(f"SSH连接失败: {e}")
+            return None
+        except Exception as e:
+            print(f"未知错误: {e}")
+            return None
             
             # 连接参数
             connect_kwargs = {
