@@ -1,0 +1,5 @@
+# 这是一个占位文件
+# 请使用SVG文件生成实际的PNG图标，或者替换为您自己的图标
+# 推荐使用以下命令生成PNG:
+# 使用Inkscape: inkscape -w 256 -h 256 app_icon.svg -o app_icon.png
+# 或使用其他SVG到PNG转换工具

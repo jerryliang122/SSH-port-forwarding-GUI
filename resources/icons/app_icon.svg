@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- 背景圆形 -->
+  <circle cx="32" cy="32" r="30" fill="#3498db" />
+  
+  <!-- SSH文本 -->
+  <text x="32" y="28" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">SSH</text>
+  
+  <!-- 箭头符号 -->
+  <path d="M20,40 L44,40 L38,34 M44,40 L38,46" stroke="white" stroke-width="3" fill="none" />
+</svg>
